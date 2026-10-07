@@ -8,6 +8,14 @@ print("You typed:", response)
 answer = int(response)
 print("Your answer plus 1 is", answer + 1)
 `;
+  const conditional = `response = input("What is 6 x 7? ")
+answer = int(response)
+
+if answer == 42:
+    print("Correct!")
+else:
+    print("Good try! The answer is 42.")
+`;
   const single = `first = 6
 second = 7
 response = input(str(first) + " x " + str(second) + " = ")
@@ -22,12 +30,15 @@ else:
 
 for question in range(1, 4):
     print("Question", question)
-    answer = int(input("What is 6 x 7? "))
-    if answer == 42:
+    first = question + 5
+    second = 7
+    response = input(str(first) + " x " + str(second) + " = ")
+    answer = int(response)
+    if answer == first * second:
         score += 1
         print("Correct!")
     else:
-        print("The answer is 42.")
+        print("The answer is", first * second)
 
 print("Your score is", score, "out of 3")
 `;
@@ -70,8 +81,9 @@ print("Quiz finished!")
         step('Say hello', 'Begin with one line. Change the welcome message and run it.', 'What does print() put in the terminal?', greeting, 'print("Welcome to Multiplication Quest!")'),
         step('Ask a question', 'Use input() to ask one question. Try answering with a word and then a number.', 'What type of value does input() return?', input, 'response = input("What is 6 x 7? ")'),
         step('Turn text into a number', 'Convert the response with int(). Enter 42, then try a word and read the error.', 'Why do we convert the answer before doing arithmetic?', number, 'answer = int(response)'),
-        step('Check the answer', 'Use if / else to give feedback. Change the two factors and test both answers.', 'How are == and = doing different jobs?', single, 'if answer == first * second:'),
-        step('Repeat and keep score', 'Use a for loop to ask three questions. Add a point for each correct answer.', 'Which lines repeat, and which line runs once at the end?', loop, 'for question in range(1, 4):'),
+        step('Check the answer', 'if checks whether the answer equals 42. else gives feedback for a wrong answer. Run it with 42, then 41; notice which indented print() runs.', 'How are == and = doing different jobs?', conditional, 'if answer == 42:'),
+        step('Store the question numbers', 'first and second are variables that store the factors. str() puts them into the prompt; * multiplies them to check the answer. Change them to 3 and 8, then test 24.', 'Why can we change the factors without rewriting the answer check?', single, 'first = 6'),
+        step('Repeat and keep score', 'range(1, 4) gives 1, 2, 3. first = question + 5 makes the questions 6, 7, then 8 times 7. Indented lines repeat; score += 1 adds a point.', 'Which lines repeat, and which line runs once at the end?', loop, 'for question in range(1, 4):'),
         step('Finish the working quiz', 'Combine random questions with input checking. Run the complete quiz and change its difficulty.', 'Which part would you explain to a classmate?', original, 'questions = 5')
       ]},
       {id:'simple',label:'Make a simpler version',kind:'route',steps:[
@@ -91,7 +103,7 @@ print("Quiz finished!")
       ]},
       {id:'loops',label:'Loops',kind:'skill',steps:[
         step('Repeat with for', 'range(1, 4) gives 1, 2, and 3. Change 4 to 6 and predict the output.', 'Is the last number in range() included?', repeat, 'for question in range(1, 4):'),
-        step('Repeat the questions', 'Put input and feedback inside the loop. Keep the final score outside it.', 'What changes if the final print() is indented?', loop, '    answer = int(input("What is 6 x 7? "))'),
+        step('Repeat the questions', 'Put the factors, input, and feedback inside the loop. first = question + 5 changes each question. Keep the final score outside it.', 'What changes if the final print() is indented?', loop, '    first = question + 5'),
         step('Retry with while', 'while True repeats until break. Enter a word, then a whole number.', 'When do we know it is safe to leave the loop?', safe, '        break')
       ]},
       {id:'decisions',label:'Check answers',kind:'skill',steps:[

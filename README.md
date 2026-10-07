@@ -14,12 +14,12 @@ Open `http://localhost:8080` on that host, or `http://HOST-LAN-IP:8080` on stude
 
 ## Student workflow
 
-1. Select a starter, edit JavaScript or Python, and press Run (or Ctrl/Cmd + Enter).
+1. Choose New and a starter, edit JavaScript or Python, and press Run (or Ctrl/Cmd + Enter).
 2. For JavaScript, click the game for keyboard focus or use the on-screen controls. For Python, type into Your answer and press Enter.
 3. Use Code help for the bundled API. Errors appear in the console and preview with student-code line numbers and debugging hints. Click Go to line to select and scroll to the indicated line. If you edit after an error, run again before jumping to its location.
 4. Save project downloads a `.gameproject` JSON file containing code and all images. Open project reads it locally; no upload request occurs.
 5. For JavaScript, Export game downloads one HTML file containing the runtime, code, and assets. Python exports a ZIP containing the website, main.py, and its bundled runtime; unzip it and serve it over HTTP. Put it on any static website or the arcade's web server. Basic games also open directly as local HTML in browsers that support local-file workers.
-6. Finish session offers a download and clears recovery on shared devices.
+6. New → Finish session offers a download and clears recovery on shared devices.
 
 Recovery is browser/device/origin-specific IndexedDB storage, not a permanent backup. Keep the same server hostname and port between lessons. Clearing browser data or private browsing can lose recovery. Save project before leaving. Asset imports are capped at 2 MB each; project import is capped at 20 MB and 100 images. Untrusted project code runs only when Run is pressed.
 
@@ -130,14 +130,24 @@ Python exports include their runtime, worker, terminal UI, source, and license. 
 
 Dependency sources, versions, licenses, and checksums are in `vendor/README.md`.
 
+## Treasure Cave
+
+Choose **New → Treasure Cave** for a working Python terminal adventure. Explore three rooms, collect random treasure, and escape before energy runs out. Invalid choices cost no energy; `quit` ends the game.
+
+Learn includes a six-step Build from scratch path, Make a simpler version, Take it further, and lessons on input, branches, variables, loops, and randomness. Lesson drafts, project recovery, saves, and offline website exports work the same as the multiplication quiz. The standalone source is `examples/treasure-cave.py`. All game and lesson files are bundled for Pi and GitHub Pages.
+
 ## Python lesson framework
 
-The multiplication quiz opens as a complete working project. Its Make it your own panel offers three routes (Build from scratch, Make a simpler version, Take it further) and six focused skills (Input & numbers, Loops, Check answers, Variables & score, Random questions, Handle bad input).
+Choose **New → Multiplication quiz** to open the complete working program. Templates appear only in the New project dialog. New confirms before replacing existing work; Cancel keeps it. Save and Open remain in the compact header, with playable exports under Export. Finish session is available in the New dialog.
 
-Each step has one short instruction, a key code line, and a question to think about. Previous/Next and path buttons only change the lesson text. **Load & run step** opens a runnable example, or resumes that step's saved draft. **Find in my code** selects the key line when it appears in the editor. After editing a step, **Use step example** restores its reference code; **Undo code change** restores the most recently replaced source.
+The Python editor has **Learn** and **Lesson code** menus directly above the source. Learn offers Build from scratch, Make a simpler version, Take it further, and six key skills. Selecting a lesson checkpoints your current source and title, then immediately loads the first example (or your saved draft) in a separate lesson workspace. Previous/Next load the corresponding step and retain edits to each step. Your project source stays in the checkpoint until you return.
 
-The first path selection preserves the student's starting source and title. **Original quiz** runs the complete original demo. **Return to my starting code** restores the saved starting work without running it. Edits to loaded steps are kept in step drafts. The active path, step, drafts, starting checkpoint, and latest undo source travel inside `.gameproject` downloads and browser recovery. Finish session clears them with the rest of recovery. Playable exports contain the current program, not the lesson panel.
+Lesson code contains **Load this step / Resume this step**, **Use fresh example** after edits, **Original quiz**, and **Undo code change**. Loading an example runs it. Learn and step navigation load code automatically; press Run when ready to try it. **Back to my code** is always visible while a starting checkpoint exists; it restores that source and title, closes the lesson, and stops the preview. Done on the final step does the same. Edited step drafts are retained for a later visit. Undo is limited to the current lesson step and is cleared when returning to your project.
 
-`lessons.js` defines lesson content separately from the navigation in `lesson-ui.js`. A lesson contains an ID/version, original code, introduction, and paths. Each path has an ID, label, kind (`route` or `skill`), and steps with `title`, `instruction`, `question`, runnable `code`, and a `focus` snippet. Register another lesson under its template ID in the controller's catalog in `app.js`. Keep lesson IDs, path IDs, and step order stable so saved drafts stay attached to their instructions; changing that structure requires a progress migration or a new lesson ID. Student projects carry progress and drafts; bundled lessons provide the instructions.
+The path, step, drafts, starting checkpoint, and latest undo source travel inside `.gameproject` downloads and browser recovery. Finish session clears them with the rest of recovery. Playable exports contain the current program, not lesson navigation. Python projects have no asset sidebar; graphics projects keep their image shelf.
 
-All lesson instructions, code examples, and navigation are local files. The SSH deployment script includes them; no internet service or account is needed.
+Build from scratch has seven steps: greeting, input, number conversion, conditionals, factor variables, loops and score, and the complete quiz. Older saved build drafts are moved to their corresponding steps when loaded.
+
+`lessons.js` defines content separately from reusable navigation in `lesson-ui.js`. A lesson contains an ID/version, original code, introduction, and paths. Each path has an ID, label, kind (`route` or `skill`), and steps with `title`, `instruction`, `question`, runnable `code`, and a `focus` snippet. Register another lesson under its template ID in the controller's catalog in `app.js`. Keep lesson IDs, path IDs, and step order stable so saved drafts stay attached to their instructions; changing that structure requires a progress migration or a new lesson ID.
+
+All lesson instructions and code are local files. Both Pi deployment and GitHub Pages packaging include them; no internet service or account is needed to execute a lesson after loading the editor.

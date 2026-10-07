@@ -7,10 +7,10 @@ import shutil
 ROOT = Path(__file__).resolve().parent.parent
 SITE_FILES = (
     'index.html', 'style.css', 'terminal.css', 'app.js', 'editor.js',
-    'runtime.js', 'python-terminal.js', 'python-worker.js', 'lessons.js', 'lesson-ui.js',
+    'runtime.js', 'python-terminal.js', 'python-worker.js', 'lessons.js', 'treasure-lessons.js', 'lesson-ui.js',
     'vendor/skulpt/skulpt.min.js', 'vendor/skulpt/skulpt-stdlib.js', 'vendor/skulpt/LICENSE',
     'vendor/jszip/jszip.min.js', 'vendor/jszip/LICENSE.markdown', 'vendor/README.md',
-    'examples/multiplication-quiz.py',
+    'examples/multiplication-quiz.py', 'examples/treasure-cave.py',
 )
 
 def build(output):

@@ -20,3 +20,37 @@
 .lesson-snippet{background:#fffdf5;border:1px solid #ecdfbb;border-radius:7px;color:#665035;padding:10px;font:12px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
 .challenge .lesson-question{font-weight:600;color:#655031}.lesson-step-actions button,.lesson-navigation button,.lesson-returns button{font-size:11px;padding:7px 9px}.challenge .lesson-step-actions .primary{background:#6654e8;color:white}.challenge .lesson-note{font-size:11px;color:#8c7851;line-height:1.6}
 .lesson-navigation{justify-content:space-between;padding-top:8px}.lesson-returns{border-top:1px solid #e9dcb4;margin-top:16px;padding-top:14px}button:disabled{cursor:default;opacity:.45}
+/* The current lesson gets the space; choices and recovery are secondary. */
+.lesson-step{border:0;margin:6px 0 0;padding:0}.lesson-step-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.challenge .lesson-step-top p{margin:0;font-size:11px}.lesson-change{border:0;background:transparent;font-size:11px;padding:4px;color:#765d2e;font-weight:500;text-decoration:underline}
+.lesson-step-actions:empty{display:none}.lesson-navigation{padding-top:12px;justify-content:flex-end}.lesson-navigation #lesson-back{margin-right:auto}
+#lesson-skill{display:block;width:100%;margin-top:12px;padding:8px;border:1px solid #e6d7b0;border-radius:7px;background:#fffdf6;color:#69542f;font:12px system-ui}
+.lesson-more{margin-top:14px;border-top:1px solid #e9dcb4;padding-top:10px}.lesson-more summary{cursor:pointer;color:#8c7851;font-size:11px}.lesson-more .lesson-returns{margin-top:12px;padding-top:10px}
+#lesson-panel button[hidden]{display:none}
+.lesson-more:not([open]) > :not(summary){display:none}
+/* Compact project workspace and menus above the code. */
+.workspace-header{min-height:48px;padding:7px 14px;gap:16px;flex-wrap:nowrap}
+.workspace-brand{font-size:12px;font-weight:700;white-space:nowrap;color:#68778d}
+.workspace-header #title{width:220px;min-width:100px;flex:0 1 280px;border-color:transparent;background:#f4f6fa;padding:6px 9px;font-weight:600}
+.workspace-header .actions{gap:5px;align-items:center}.workspace-header button,.dropdown summary{padding:6px 10px;font-size:12px;font-weight:600;white-space:nowrap}
+main{grid-template-columns:150px minmax(320px,1.2fr) minmax(320px,1fr);gap:12px;padding:12px;align-items:start;max-width:none}
+body.python-project main{grid-template-columns:minmax(320px,1.2fr) minmax(320px,1fr)}
+#assets-sidebar{padding:12px;min-width:0}#assets-sidebar[hidden]{display:none}#assets-sidebar h2{margin:0 0 12px}#upload{font-size:11px}
+#code{height:calc(100vh - 275px);min-height:340px}.panelbar{padding:8px 12px}.console{min-height:100px}#log{max-height:110px}
+footer{padding:0 16px 10px;font-size:11px}#recovery{margin:0;min-height:0}
+.dropdown{position:relative}.dropdown summary{cursor:pointer;border:1px solid #d5dce5;border-radius:7px;background:white;list-style:none;color:#33435b}.dropdown summary::-webkit-details-marker{display:none}
+.dropdown summary:focus-visible{outline:3px solid #9bafff}.dropdown-items{position:absolute;top:calc(100% + 5px);left:0;min-width:210px;z-index:10;background:white;border:1px solid #d5dce5;border-radius:8px;padding:5px;box-shadow:0 8px 24px #18223324;max-height:65vh;overflow:auto}
+.dropdown:not([open])>.dropdown-items{display:none}.dropdown-items button{display:block;width:100%;border:0;background:white;text-align:left;font-size:12px;padding:9px;border-radius:4px}.dropdown-items button:hover{background:#f0edff}.menu-label{display:block;font-size:10px;color:#7d8ba0;padding:7px 9px 3px;font-weight:700}
+#export-menu .dropdown-items{left:auto;right:0}
+#lesson-panel{border-bottom:1px solid #dde3ec;background:#f8f9fc}#lesson-panel[hidden]{display:none}
+.lesson-toolbar{display:flex;gap:7px;align-items:center;padding:8px 12px}.back-to-code{margin-left:auto;font-size:12px;padding:6px 10px;color:#5644bd;border-color:#c6beec;background:#f0edff}
+.lesson-strip{padding:10px 12px;background:#fff8e7;border-top:1px solid #eee3c4}.lesson-strip h3{font-size:14px;margin:0}.lesson-strip h3:focus{outline:none}.lesson-strip p{font-size:12px;line-height:1.5;margin:5px 0;color:#7a6542}
+.lesson-step-top{margin:0;gap:10px}.lesson-progress{font-size:10px;color:#90784c;text-align:right}.lesson-navigation{justify-content:flex-start;padding-top:5px;align-items:center}.lesson-navigation button{font-size:11px;padding:5px 8px}.lesson-navigation #lesson-back{margin:0}
+.lesson-hint{font-size:11px;color:#806535;margin-left:auto}.lesson-hint summary{cursor:pointer}.lesson-hint[open]{flex-basis:100%;margin:0}.lesson-hint:not([open])>:not(summary){display:none}
+#new-project-dialog{width:min(560px,calc(100% - 24px));max-width:560px}#new-project-dialog h2{margin:0;font-size:20px}#new-project-dialog p{font-size:13px;color:#78869b}
+#templates{grid-template-columns:1fr 1fr;gap:10px}#templates button{padding:13px}.new-project-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:20px}.new-project-actions button{font-size:12px}#new-cancel{margin-left:auto}
+@media(max-width:1000px){main{grid-template-columns:125px minmax(280px,1fr) minmax(280px,1fr)}body.python-project main{grid-template-columns:minmax(280px,1fr) minmax(280px,1fr)}.preview{grid-column:auto}.workspace-brand{display:none}}
+@media(max-width:720px){main,body.python-project main{display:flex;flex-direction:column}.editor,.preview,#assets-sidebar{width:100%}#assets{grid-template-columns:repeat(3,40px)}.workspace-header{flex-wrap:wrap;gap:6px;padding:7px 10px}.workspace-header #title{flex:1 1 140px;width:140px}.workspace-header .actions{margin-left:auto}#code{height:380px}.lesson-toolbar{flex-wrap:wrap}.back-to-code{margin-left:0}.lesson-step-top{align-items:flex-start}.lesson-progress{max-width:140px}.dropdown-items{min-width:190px}#templates{grid-template-columns:1fr}}
+@media(min-width:721px){#code{height:calc(100vh - 290px)}body.lesson-active #code{height:calc(100vh - 395px)}}
+
+.template-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}.template-language{flex-shrink:0;font-size:10px;font-weight:700;color:#5b47cf;background:#f0edff;border-radius:5px;padding:3px 6px}

@@ -89,3 +89,36 @@ Lesson content is in lessons.js; reusable navigation and state validation are in
 - Pages workflow YAML, job dependencies, permissions, JavaScript syntax, Python compilation, and shell syntax passed local checks.
 
 GitHub Actions/Pages publication and physical Pi deployment have not been run. This workspace has no initialized Git repository or configured remote. Pages needs internet to load; the Pi remains classroom-LAN-only. Save/Open is the portable project transfer between installations.
+
+## Compact multiplication tutorial
+
+Chrome UI checks passed:
+- Path chooser shows three route buttons and one skill dropdown.
+- Active first step has three visible buttons before loading, two after loading (Change lesson and Next); loaded steps use the editor's existing Run control.
+- Hints, code snippets, example reset, original quiz, starting-code restore and undo are hidden until the details control is opened.
+- Previous/Next, skill switching, draft resume, example reset/undo, original/start restore, Finish, and refresh recovery still work.
+- Mobile viewport had no horizontal overflow; no browser page errors.
+- Static site packaging and git diff whitespace checks passed.
+
+## Workspace-first layout
+
+Chrome desktop and mobile checks passed:
+- Header measured under 55 px at desktop size; New/Open/Save and Export remained accessible.
+- Templates appeared only in New project, with cancel preserving existing source.
+- Python projects had no sidebar; JavaScript projects retained their assets and live preview.
+- Learn and Lesson code menus were above the editor; selecting guidance left source unchanged.
+- Back to my code restored the starting source and title, closed guidance, and cancelled pending input.
+- Edited lesson drafts resumed after returning; refresh restored active lessons and return checkpoints.
+- Save, import, and Python ZIP export continued to work.
+- Mobile menus, lesson loading, and terminal output worked without horizontal overflow.
+- No browser page errors. Static packaging and JavaScript syntax checks passed.
+
+These are local changes; GitHub Pages requires committing and pushing the source to publish them. Physical Pi/iPad testing remains outstanding.
+
+Automatic lesson workspace navigation: browser checks passed for all nine paths and 26 steps with external requests blocked. Learn loads the first example immediately; Previous/Next load each step and retain edited drafts. Back to my code and final Done restore the original student source. Refresh recovery, title restoration, pending-input cancellation, and prevention of lesson undo after returning passed. Save/import/export, New cancellation, graphics projects, and mobile layout passed without browser errors. JavaScript syntax, static bundle build, and whitespace checks passed.
+
+Build-from-scratch progression: step 4 explains the factor variables and str(); step 5 keeps those variables and changes the first factor each round. Executing step 5 verified prompts 6 x 7, 7 x 7, 8 x 7 and scores 3/3 and 2/3. All example syntax and hint targets passed. All 26 examples loaded through browser navigation with external requests blocked and restored student code on completion. Static build and whitespace checks passed.
+
+Seven-step build tutorial: step 4 uses a fixed question to teach only if/else; the new step 5 introduces factor variables, str(), and multiplication before step 6 adds the loop. Executed both conditional branches, a 3 x 8 variables example, and all three loop questions with perfect scoring. All 27 example syntax and hint targets passed. Legacy draft migration preserves variables/loop/final drafts and checkpoints and is stable on repeated validation. Browser navigation passed for all nine paths with external requests blocked, including restoration of student code. Static build and whitespace checks passed.
+
+Treasure Cave: browser test with external requests blocked ran the locally bundled Skulpt game through escape, energy exhaustion, quit, invalid input, and capitalized/spaced choices. All 16 lesson steps loaded and restored the original source. Edited lesson recovery after refresh, Save/Open round trip, and ZIP export passed without browser errors. Exported main.py matched the starter and included the Python runtime. CPython verified endings, syntax, and hint targets. Static build, JavaScript syntax, and whitespace checks passed.
